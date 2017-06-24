@@ -1,0 +1,252 @@
+/*Estilos PC*/
+@media only screen
+and (min-device-width: 1200px)
+and (max-device-width: 1600px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (min-resolution: 192dpi){
+    .no-margin-top {
+        margin-top: -1%;
+    }
+}
+
+/*Estilos MOBILE*/
+@media screen
+and (min-device-width: 0px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3) {
+    .no-margin-top {
+        margin-top: -5%;
+    }
+
+    .no-margin-top-2 {
+        margin-top: -20%;
+    }
+}
+
+/*Tamanhos*/
+.min-height {
+    min-height: 80vh;
+}
+
+.margin-top-10 {
+    margin-top: 10%;
+}
+
+.margin-top-15{
+    margin-top: 15%;
+}
+
+/* label color */
+.input-field label {
+    color: #4CAF50;
+}
+
+/* label focus color */
+.input-field input[type=password]:focus + label, .input-field input[type=email]:focus + label, .input-field input[type=text]:focus + label {
+    color: #4CAF50 !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #4CAF50;
+}
+
+/* brand logo - top nav */
+.logo {
+    height: 100%;
+    margin-top: 0.3em;
+}
+
+/*profile photo upload button*/
+.input-field-photo {
+    position: relative !important;
+    bottom: 32px !important;
+    left: 60px !important;
+    margin-top: 0 !important;
+    width: 200px;
+}
+
+/*Date picker*/
+.picker__date-display {
+    background-color: #4CAF50 !important;
+}
+
+.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted {
+    background-color: #4CAF50 !important;
+}
+
+.picker__weekday-display {
+    background-color: #4CAF50 !important;
+}
+
+.picker__close, .picker__today {
+    color: #4CAF50 !important;
+}
+
+.picker__day.picker__day--today {
+    color: #4CAF50 !important;
+}
+
+.picker__day.picker__day--today.picker__day--selected {
+    color: #fff !important;
+}
+
+/*Profile changes*/
+.changes-btn {
+    font-size: 0.6rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    height: 2rem !important;
+    line-height: 2rem !important;
+}
+
+/*user register*/
+span.radio_label {
+    color: #9e9e9e;
+}
+
+.radio_genero {
+    padding-left: 10px !important;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+    background-color: #4CAF50 !important;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+    border: 2px solid #4CAF50 !important;
+}
+
+/*Switch colour*/
+
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: #4CAF50 !important;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+    background-color: #4CAF50 !important;
+    left: 24px;
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: #4CAF50 !important;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+    background-color: #4CAF50 !important;
+    left: 24px;
+}
+
+.brand-logo {
+    font-size: 1.5em !important;
+}
+
+/*hiperlink "ler mais..."*/
+.readmore {
+    width: auto;
+}
+.readmore .moreText {
+    display: none;
+}
+.readmore a.more {
+    display: block;
+}
+
+/*mapa localização Bioliving*/
+#map {
+    width: 100%;
+    height: 100vh;
+    z-index: -2;
+}
+
+.icon{
+    display: inline-block !important;
+    margin: 5px !important;
+
+}
+
+/*Comentários*/
+.comments{
+    max-height: 50vh;
+    overflow: scroll;
+    overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #CFCFCF;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+.data_comentario{
+margin-left: 30%;
+color: lightgray;
+}
+
+.nome_comentario{
+font-weight: bold;
+}
+
+.nav-fixed{
+    position: fixed;
+    z-index: 3;
+    margin-bottom: 30%;
+}
+
+.margin_nav_30{
+    padding-top: 30%;
+}
+
+.margin_nav_10{
+    padding-top: 10%;
+}
+
+.content{
+    min-height: 87.5vh;
+}
+
+.error-input{
+    color: #db4437;
+    padding-top: -10px;
+}
+
+.user-image{
+    /*
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
+    */
+    width: 100%;
+}
