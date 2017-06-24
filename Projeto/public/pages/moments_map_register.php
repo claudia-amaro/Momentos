@@ -1,3 +1,5 @@
+<!--Esta página é temporária.-->
+
 <?php
 session_start();
 ?>
@@ -19,23 +21,16 @@ session_start();
 </head>
 
 <body>
-<div class="content">
-    <div id="conteudo_mobile" class="hide-on-large-only">
 
-        <!--Side Navigation = Menu on Mobile -->
-        <?php include_once "../components/side_nav.php" ?>
+<!--Side Navigation = Menu on Mobile -->
+<?php include_once "../components/side_nav.php" ?>
 
-        <!--Top Navigation-->
-        <?php include_once "../components/top_nav_moments_search.php" ?>
+<!--Top Navigation-->
+<?php include_once "../components/top_nav_moments_search.php" ?>
 
-        <!--Content (Mapa)-->
+<!--Content (Mapa)-->
 
-        <?php include_once "../components/map_register.php" ?>
-    </div>
-    <div id="conteudo_pc" class="hide-on-med-and-down">
-        <?php include "../components/no_access.php" ?>
-    </div>
-</div>
+<?php include_once "../components/map_register.php" ?>
 
 <!--Footer-->
 <?php include_once "../components/footer.php" ?>
