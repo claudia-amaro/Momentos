@@ -22,13 +22,25 @@
                 </div>
         -->
 
+<!--
+Ao clicar em doar:
+        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto WHERE ref_id_categoria_produto = 1 ORDER BY nome ASC";
+Ao clicar em aquisição:
+        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto WHERE ref_id_categoria_produto = 2 ORDER BY nome ASC";
+arvores:
+        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto WHERE ref_id_tipo_produto = 1 ORDER BY nome ASC";
+merchandising:
+        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto WHERE ref_id_tipo_produto = 2 ORDER BY nome ASC";
+utilitarios:
+        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto WHERE ref_id_tipo_produto = 3 ORDER BY nome ASC";
+-->
 
         <?php
         // Ligação à BD 
         require_once('../connections/connection.php');
 
         // Definir a query
-        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto ORDER ";
+        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto ORDER BY nome DESC";
         $result = mysqli_prepare($link, $query);
 
         // Extrair dados da BD 
