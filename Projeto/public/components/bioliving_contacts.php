@@ -1,3 +1,67 @@
+<?php
+
+//Conversão do URL numa lista.
+
+$query = [];
+
+$url = parse_url($_SERVER['REQUEST_URI']);
+
+if(isset($url['query'])){
+    parse_str($url['query'], $query);
+}
+
+// ERROS
+
+// Variáveis para guardar as mensagens de erro
+$campo_nome = "";
+$campo_email = "";
+$campo_assunto = "";
+$campo_mensagem = "";
+
+// Atribuição das mensagens às variáveis das mensagens de erro, de acordo com os erros comunicados no URL.
+
+// CAMPO NOME
+if (in_array("1", $query)){
+    $campo_nome = "O campo nome está vazio. Por favor, preenche-o.";
+}
+if (in_array("2", $query)){
+    $campo_nome = "O campo nome deve ter entre 3 e 50 caracteres.";
+}
+// CAMPO EMAIL
+if (in_array("3", $query)){
+    $campo_email = "O campo email está vazio. Por favor, preenche-o.";
+}
+if (in_array("4", $query)){
+    $campo_email = "O limite de caracteres deste campo é 100.";
+}
+// CAMPO ASSUNTO
+if (in_array("5", $query)){
+    $campo_assunto = "O campo assunto está vazio. Por favor, preenche-o.";
+}
+if (in_array("6", $query)){
+    $campo_assunto = "O campo assunto deve ter entre 3 e 50 caracteres.";
+}
+// CAMPO MENSAGEM
+if (in_array("7", $query)){
+    $campo_mensagem = "O campo mensagem está vazio. Por favor, preenche-o.";
+}
+if (in_array("8", $query)){
+    $campo_mensagem = "O campo mensagem deve ter entre 3 e 500 caracteres.";
+}
+
+//Variáveis para guardar os valores preenchidos nos campos de formulário após uma submissão incorreta
+$nome = isset($query["nome"]) ? $query["nome"] : "";
+//operador ternário: é o mesmo que ter
+// $nome = "";
+// if(isset($query["nome"])) {
+//   $nome = $query["nome"];
+// }
+$email = isset($query["email"]) ? $query["email"] : "";
+$assunto = isset($query["assunto"]) ? $query["assunto"] : "";
+$mensagem = isset($query["mensagem"]) ? $query["mensagem"] : "";
+
+?>
+
 <!--MAPA LOCALIZAÇÃO BIOLIVING-->
 <script>
     function initMap() {
@@ -36,20 +100,24 @@
                 <form class="margin-top-10" action="../components/contacts_control.php" method="post">
                     <span class="card-title">Formulário de contacto</span>
                     <div class="input-field col s12">
-                        <input id="nome" type="text" class="validate" name="nome">
+                        <input id="nome" type="text" class="validate" name="nome" value="<?= $nome ?>">
                         <label for="nome">Nome</label>
+                        <span class="green-text"><?= $campo_nome ?></span>
                     </div>
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" name="email">
+                        <input id="email" type="email" class="validate" name="email" value="<?= $email ?>">
                         <label for="email">Email</label>
+                        <span class="green-text"><?= $campo_email ?></span>
                     </div>
                     <div class="input-field col s12">
-                        <input id="assunto" type="text" class="validate" name="assunto">
+                        <input id="assunto" type="text" class="validate" name="assunto" value="<?= $assunto ?>">
                         <label for="assunto">Assunto</label>
+                        <span class="green-text"><?= $campo_assunto ?></span>
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="mensagem" class="materialize-textarea" name="mensagem"></textarea>
+                        <textarea id="mensagem" class="materialize-textarea" name="mensagem"><?= $mensagem ?></textarea>
                         <label for="mensagem">Mensagem</label>
+                        <span class="green-text"><?= $campo_mensagem ?></span>
                     </div>
                     <p class="green-text" id="msg_enviada">
                         <?php

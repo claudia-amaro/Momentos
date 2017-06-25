@@ -39,7 +39,8 @@ if (in_array("4", $query)){
 // CAMPO GÉNERO
 if (in_array("5", $query)){
     $campo_genero = "Por favor, selecione o género.";
-}// CAMPO EMAIL
+}
+// CAMPO EMAIL
 if (in_array("7", $query)){
     $campo_email = "O campo email está vazio. Por favor, preenche-o.";
 }
