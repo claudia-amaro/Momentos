@@ -56,7 +56,7 @@
         <div class="row">
 
             <div class="input-field col s8">
-                <a class="waves-effect waves-light btn green" href="tree_select.php" disabled><i
+                <a class="waves-effect waves-light btn green" href="tree_select.php"><i
                             class="material-icons right">chevron_right</i>escolher Árvore</a>
                 <br><span class="grey-text"><i class="material-icons tiny">warning</i> Disponível consoante o local escolhido</span>
 
