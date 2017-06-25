@@ -4,7 +4,7 @@
     <div class="row">
 
         <!--ALTERADO O TYPE PARA TEXT PATRA PERMITIR O LOGIN NOS TERMOS EXIGIDOS PARA A APRESENTAÇÃO DO PROJETO-->
-        <form class="col s12 margin-top-10" action="login_control.php" method="post">
+        <form class="col s12 margin-top-10" action="../components/login_control.php" method="post">
             <div class="input-field col s12">
                 <input id="email" type="text" class="validate" name="email">
                 <label for="email">Email</label>
@@ -13,11 +13,11 @@
                 <input id="password" type="password" class="validate" name="password">
                 <label for="password">Password</label>
             </div>
-<!--            <p>
-                <input type="checkbox" class="remember" name="remember" id="remember"/>
-                <label for="remember">Lembrar-me</label>
-            </p>
--->            <p class="green-text" id="msg_erro_login">
+<!--            <p>-->
+<!--                <input type="checkbox" class="remember" name="remember" id="remember"/>-->
+<!--                <label for="remember">Lembrar-me</label>-->
+<!--            </p>-->
+            <p class="green-text" id="msg_erro_login">
                 <?php
                 if (isset($_GET['erro']) && $_GET['erro'] == 1) {
                     echo "O email ou password são inválidos!";
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <p>
-                <a class="green-text" href='#!'><b>Esqueceu-se da password?</b></a>
+                <a class="green-text" href='password_recover.php'><b>Esqueceu-se da password?</b></a>
             </p>
         </form>
     </div>

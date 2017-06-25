@@ -26,7 +26,7 @@ if (mysqli_stmt_fetch($result)) {
         $_SESSION['genero'] = $genero;
         $_SESSION['role'] = $role;
         $_SESSION['user_id'] = $user_id;
-        header("Location: ");
+        header("Location: ../pages/moments.php");
 
         //criação da cookie para o "lembrar-me"
         if (isset($_SESSION['user'])) {
