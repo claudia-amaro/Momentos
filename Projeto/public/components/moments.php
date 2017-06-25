@@ -63,6 +63,7 @@ require_once('../connections/connection.php');
     <div class="row">
         <div class="col s12 m6">
 
+
             <?php
 
             // Definir a query

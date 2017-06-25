@@ -27,10 +27,10 @@ if(isset($_GET['id_momento'])){
                 echo "
             <!--Galery of pictures-->
             <li class=\"collection-item avatar\">
-                <img src=\"../../images/imagem1.png\" alt=\"\" class=\"circle\">
+                <a href='tree_details.php?nome_arvore=$nome_arvore'><p class='right'><i class=\"material-icons grey-text\">more_vert</i></p></a><img src=\"../../images/imagem1.png\" alt=\"\" class=\"circle\">
                 <span class=\"title\">$nome_arvore</span>
                 <p>$preco</p>
-                <a href=\"tree_details.php?id=\" class=\"secondary-content\"><i class=\"material-icons grey-text\">more_vert</i></a>
+                <a href='moments_register.php?nome_arvore=$nome_arvore'><p class='right'><i class=\"material-icons green-text\">shopping_cart</i></p></a>
             </li>
     ";
 
