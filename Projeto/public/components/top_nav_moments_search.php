@@ -22,3 +22,19 @@
         </ul>
     </div>
 </nav>
+
+
+<!--<div class="nav-content">-->
+<!--    <ul class="tabs tabs-transparent">-->
+<!--        <li class="tab"><a href="#test1 ">Localização</a></li>-->
+<!--        --><?php
+//        // Após uma submissão inválida do registo, e até que seja feito um registo válido, o separador ativo por padrão é o separador de registo.
+//        if (isset($_SESSION['registo'])) {
+//            echo "<li class=\"tab\"><a href=\"#test2\" class=\"active\">ID</a></li>";
+//        } else {
+//            echo "<li class=\"tab\"><a href=\"#test2\">ID</a></li>";
+//        };
+//        ?>
+<!--    </ul>-->
+<!--</div>-->
+
