@@ -29,7 +29,7 @@ require_once('../connections/connection.php');
 
                 /*Card for content*/
                 echo "
-            <a href=\"moments_detail.php?id=\" class=\"black-text\">
+            <a href=\"moments_detail.php?id=$id_momento\" class=\"black-text\">
                 <div class=\"card\">
                     <div class=\"card-image\">
                         <img src=\"../../images/back_small.jpg\">
@@ -53,7 +53,7 @@ require_once('../connections/connection.php');
             }
 
             // Fechar ligação à BD 
-            mysqli_close($link);
+//            mysqli_close($link);
             ?>
         </div>
     </div>
@@ -85,7 +85,7 @@ require_once('../connections/connection.php');
 
                 /*Card for content*/
                 echo "
-            <a href=\"moments_detail.php?id=\" class=\"black-text\">
+            <a href=\"moments_detail.php?id=$id_momento\" class=\"black-text\">
                 <div class=\"card\">
                     <div class=\"card-image\">
                         <img src=\"../../images/back_small.jpg\">
@@ -109,7 +109,7 @@ require_once('../connections/connection.php');
             }
 
             // Fechar ligação à BD 
-            mysqli_close($link);
+//            mysqli_close($link);
 
             ?>
 
