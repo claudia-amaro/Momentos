@@ -149,17 +149,14 @@ mysqli_close($link);
 //                        '</div>'+
 //                        '</div>';
 
-//                    var infoWindow = new google.maps.InfoWindow({
+//                    var infowindow = new google.maps.InfoWindow({
 //                        content: contentString
 //                    });
-
 
             var marc_1 = new google.maps.Marker({
                 position: pos_1,
                 map: map
             });
-
-//            infoWindow.open(map, marc_1);
 
 //                    marc_1.addListener('click', function() {
 //                        infowindow.open(map, marc_1);
@@ -178,11 +175,11 @@ mysqli_close($link);
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo('bounds', map);
 
-//        var infowindow = new google.maps.InfoWindow();
-//        var marker = new google.maps.Marker({
-//            map: map,
-//            anchorPoint: new google.maps.Point(0, -29)
-//        });
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29)
+        });
 
         autocomplete.addListener('place_changed', function() {
             infowindow.close();
