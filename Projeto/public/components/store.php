@@ -58,7 +58,7 @@ utilitarios:
 
             /*Card for content*/
             echo "
-            <a href=\"moments_detail.php?id=$id_produto\" class=\"black-text\">        
+            <a href=\"products_detail.php?id=$id_produto\" class=\"black-text\">        
                 <div class=\"card\">
                     <div class=\"card-image\">
                         <img src=\"../../images/imagem1.png\">

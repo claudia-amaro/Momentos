@@ -250,3 +250,9 @@ font-weight: bold;
     */
     width: 100%;
 }
+
+.box1{
+    width: 20vh;
+    height: 20vh;
+    display: inline-block;
+}

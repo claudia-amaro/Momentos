@@ -1,24 +1,42 @@
+<?php
+
+$id_momento = $_GET['id'];
+?>
+
 <div class="row">
     <div class="col s12 margin-top-15">
-        <ul class="collection " >
-            <li class="collection-item avatar">
-                <img src="../../images/imagem1.png" alt="" class="circle">
-                <span class="title">Cedro</span>
+        <ul class="collection ">
+
+            <?php
+            // Ligação à BD 
+            require_once('../connections/connection.php');
+
+            // Definir a query
+            $query = "SELECT nome_momento, historia, arvore, data_momento  FROM momentos  WHERE id_momento = $id_momento";
+            $result = mysqli_prepare($link, $query);
+
+            // Extrair dados da BD 
+            $result = mysqli_query($link, $query);
+
+            //*Enquanto devolver resultados...
+            while ($row_result = mysqli_fetch_assoc($result)) {
+                //Variáveis
+                $nome_momento = $row_result["nome_momento"];
+                $historia = $row_result["historia"];
+                $arvore = $row_result["arvore"];
+                $data_momento = $row_result["data_momento"];
+
+                echo "
+            <!--Galery of pictures-->
+            <li class=\"collection-item avatar\">
+                <img src=\"../../images/imagem1.png\" alt=\"\" class=\"circle\">
+                <span class=\"title\">Cedro</span>
                 <p>Preço: 5.00€ </p>
-                <a href="tree_details.php" class="secondary-content"><i class="material-icons grey-text">more_vert</i></a>
+                <a href=\"tree_details.php?id=\" class=\"secondary-content\"><i class=\"material-icons grey-text\">more_vert</i></a>
             </li>
-            <li class="collection-item avatar">
-                <img src="../../images/imagem1.png" alt="" class="circle">
-                <span class="title">Cedro</span>
-                <p>Preço: 5.00€ </p>
-                <a href="#!" class="secondary-content"><i class="material-icons grey-text">more_vert</i></a>
-            </li>
-            <li class="collection-item avatar">
-                <img src="../../images/imagem1.png" alt="" class="circle">
-                <span class="title">Cedro</span>
-                <p>Preço: 5.00€ </p>
-                <a href="#!" class="secondary-content"><i class="material-icons grey-text">more_vert</i></a>
-            </li>
+    ";
+            }
+            ?>
         </ul>
     </div>
 </div>
