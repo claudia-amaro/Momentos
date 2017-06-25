@@ -24,14 +24,14 @@ $campo_cpassword = "";
 
 // CAMPO NOME
 if (in_array("1", $query)){
-    $campo_nome = "O campo está vazio. Por favor, preencha-o.";
+    $campo_nome = "O campo está vazio. Por favor, preenche-o.";
 }
 if (in_array("2", $query)){
     $campo_nome = "O limite de caracteres para este campo é 50).";
 }
 // CAMPO APELIDO
 if (in_array("3", $query)){
-    $campo_apelido = "O campo está vazio. Por favor, preencha-o.";
+    $campo_apelido = "O campo está vazio. Por favor, preenche-o.";
 }
 if (in_array("4", $query)){
     $campo_apelido = "O limite de caracteres para este campo é 50.";
@@ -41,14 +41,14 @@ if (in_array("5", $query)){
     $campo_genero = "Por favor, selecione o género.";
 }// CAMPO EMAIL
 if (in_array("7", $query)){
-    $campo_email = "O campo email está vazio. Por favor, preencha-o.";
+    $campo_email = "O campo email está vazio. Por favor, preenche-o.";
 }
 if (in_array("8", $query)){
     $campo_email = "O limite de caracteres deste campo é 100.";
 }
 // CAMPO PASSWORD
 if (in_array("9", $query)){
-    $campo_password = "O campo password está vazio. Por favor, preencha-o.";
+    $campo_password = "O campo password está vazio. Por favor, preenche-o.";
 }
 if (in_array("10", $query)){
     $campo_password = "A password deve ter entre 8 e 12 caracteres.";
@@ -64,13 +64,13 @@ if (in_array("13", $query)){
 }
 // CAMPO CONFIRMAR PASSWORD
 if (in_array("14", $query)){
-    $campo_cpassword = "O campo confirmar password está vazio. Por favor, preencha-o.";
+    $campo_cpassword = "O campo confirmar password está vazio. Por favor, preenche-o.";
 }
 if (in_array("15", $query)){
     $campo_cpassword = "Os valores introduzidos nos campos password e confirmar password não são iguais.";
 }
 if (in_array("16", $query)){
-    $campo_cpassword = "Por favor, volte a preencher o campo confirmar password.";
+    $campo_cpassword = "Por favor, volta a preencher o campo confirmar password.";
 }
 
 
@@ -78,7 +78,7 @@ if (in_array("16", $query)){
 $registo = "";
 if(isset($_GET['registo'])){
     $registo = "Registo inválido. O email escolhido já foi utilizado anteriormente."; // Em princípio, esse é o problema. (Mas esta solução deve ser alterada.)
-    $campo_cpassword = "Por favor, volte a preencher os campos password e confirmar password.";
+    $campo_cpassword = "Por favor, volta a preencher os campos password e confirmar password.";
 }
 
 //Variáveis para guardar os valores preenchidos nos campos de formulário após uma submissão incorreta
