@@ -1,70 +1,69 @@
-<div class="row">
-    <div class="col s12 m12">
-        <div id="test1" class="col s12">
+<div class="row" id="test1">
+    <div class="col s12">
 
-            <!--Avatar-->
-            <div id="profile_photo" class="col s12">
-                <div class="row">
-                    <?php
-                    if (isset($_SESSION['user'])) {
-                        $genero = $_SESSION['genero'];
-                        $email = $_SESSION['user'];
-                        $result = "";
-                        if ($genero == "m") {
-                            $avatar = "avatar_man.png";
-                        } else {
-                            $avatar = "avatar_woman.png";
-                        }
-                        echo "
-                    <div class=\"userView\">
-                        <img src=\"../../images/$avatar\" class=\"circle\" height=\"100px\">
+        <!--Avatar-->
+        <div class="row">
+        <div id="profile_photo" class="col s12 ">
+                <?php
+                if (isset($_SESSION['user'])) {
+                    $genero = $_SESSION['genero'];
+                    $email = $_SESSION['user'];
+                    $result = "";
+                    if ($genero == "m") {
+                        $avatar = "avatar_man.png";
+                    } else {
+                        $avatar = "avatar_woman.png";
+                    }
+                    echo "
+                    <div class=\"\">
+                        <img src=\"../../images/$avatar\" class=\"user-image\">
                     </div>
                 ";
-                    }
-                    ?>
-                    <div id="personal_data" class="input-field-photo">
-                        <div class="btn-floating btn waves-effect waves-light green file-field">
-                            <i class="material-icons">mode_edit</i>
-                            <input type="file">
-                        </div>
+                }
+                ?>
+                <div id="personal_data" class="input-field-photo">
+                    <div class="btn-floating btn-large waves-effect waves-light green file-field">
+                        <i class="material-icons">mode_edit</i>
+                        <input type="file">
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="divider col s12">
-                <div class="row"></div>
-            </div>
+        <div class="divider col s12">
+            <div class="row"></div>
+        </div>
 
-            <form class="col s12" action="../components/profile_data_control.php" method="post">
-                <div id="profile_data" class="col s12">
-                    <div class="row">
+        <form class="col s12" action="../components/profile_data_control.php" method="post">
+            <div id="profile_data" class="col s12">
+                <div class="row">
 
-                        <?php
-                        // Ligação à BD 
-                        require_once('../connections/connection.php');
+                    <?php
+                    // Ligação à BD 
+                    require_once('../connections/connection.php');
 
-                        // Definir a query
-                        $query = "SELECT nome, apelido, genero, email, data_nascimento, rua, numero_porta, andar, codigo_postal, cidade FROM users WHERE email=?";
-                        $result = mysqli_prepare($link, $query);
-                        // Extrair dados da BD 
-                        mysqli_stmt_bind_param($result, 's', $email);
-                        mysqli_stmt_execute($result);
-                        mysqli_stmt_bind_result($result, $nome, $apelido, $genero, $email, $data_nascimento, $rua, $numero_porta, $andar, $codigo_postal, $cidade);
+                    // Definir a query
+                    $query = "SELECT nome, apelido, genero, email, data_nascimento, rua, numero_porta, andar, codigo_postal, cidade FROM users WHERE email=?";
+                    $result = mysqli_prepare($link, $query);
+                    // Extrair dados da BD 
+                    mysqli_stmt_bind_param($result, 's', $email);
+                    mysqli_stmt_execute($result);
+                    mysqli_stmt_bind_result($result, $nome, $apelido, $genero, $email, $data_nascimento, $rua, $numero_porta, $andar, $codigo_postal, $cidade);
 
-                        if (mysqli_stmt_fetch($result)) {
-                            //Variáveis
-                            $nome_BD = $nome;
-                            $apelido_BD = $apelido;
-                            $genero_BD = $genero;
-                            $email_BD = $email;
-                            $data_nascimento_BD = $data_nascimento;
-                            $rua_BD = $rua;
-                            $numero_porta_BD = $numero_porta;
-                            $andar_BD = $andar;
-                            $codigo_postal_BD = $codigo_postal;
-                            $cidade_BD = $cidade;
+                    if (mysqli_stmt_fetch($result)) {
+                        //Variáveis
+                        $nome_BD = $nome;
+                        $apelido_BD = $apelido;
+                        $genero_BD = $genero;
+                        $email_BD = $email;
+                        $data_nascimento_BD = $data_nascimento;
+                        $rua_BD = $rua;
+                        $numero_porta_BD = $numero_porta;
+                        $andar_BD = $andar;
+                        $codigo_postal_BD = $codigo_postal;
+                        $cidade_BD = $cidade;
 
-                            echo "
+                        echo "
             <div class=\"input-field col s6\">
                 <input id=\"first_name\" type=\"text\" class=\"validate\" name=\"nome\" value=\"$nome_BD\">
                 <label for=\"first_name\">Nome</label>
@@ -148,20 +147,18 @@
         </div>
     </div>
     ";
-                        }
-                        ?>
-                        <div class="row">
-                            <div class="input-field col s6 center">
-                                <input type="submit" name="change_profile_data" id="change_profile_data"
-                                       class="waves_effect waves_light btn changes-btn green" value="Alterar">
-                            </div>
-                            <div class="input-field col s6 center">
-                                <input type="submit" name="cancel_changes_profile_data" id="cancel_changes_profile_data"
-                                       class="waves_effect waves_light btn changes-btn green" value="Cancelar">
-                            </div>
+                    }
+                    ?>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="submit" name="change_profile_data" id="change_profile_data"
+                                   class="waves_effect waves_light btn changes-btn green" value="Alterar">
+                            <input type="submit" name="cancel_changes_profile_data" id="cancel_changes_profile_data"
+                                   class="waves_effect waves_light btn changes-btn green" value="Cancelar">
                         </div>
+                    </div>
 
-            </form>
-        </div>
+        </form>
     </div>
+</div>
 </div>

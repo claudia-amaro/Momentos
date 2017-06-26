@@ -2,42 +2,47 @@
 
     <?php
 
-    $id_momento = $_GET['id'];
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
 
-    // Ligação à BD 
-    require_once('../connections/connection.php');
+        $id_momento = $_GET['id'];
 
-    // Definir a query
-    $query = "SELECT nome_momento, historia, arvore, data_momento  FROM momentos  WHERE id_momento = $id_momento";
-    $result = mysqli_prepare($link, $query);
+        // Ligação à BD 
+        require_once('../connections/connection.php');
 
-    // Extrair dados da BD 
-    $result = mysqli_query($link, $query);
+        // Definir a query
+        $query = "SELECT nome_momento, historia, arvore, data_momento  FROM momentos  WHERE id_momento = $id_momento";
+        $result = mysqli_prepare($link, $query);
 
-    //*Enquanto devolver resultados...
-    while ($row_result = mysqli_fetch_assoc($result)) {
-        //Variáveis
-        $nome_momento = $row_result["nome_momento"];
-        $historia = $row_result["historia"];
-        $arvore = $row_result["arvore"];
-        $data_momento = $row_result["data_momento"];
+        // Extrair dados da BD 
+        $result = mysqli_query($link, $query);
 
-        echo "
+        if (isset($_SESSION['user_id'])) {
+            $user_id = $_SESSION['user_id'];
+
+            //verificar se imagem existe
+            $target_dir = "../../../../IIS_tmp/img_perfil/";
+            $avatar_path = $target_dir . $user_id . ".jpg";
+            if (file_exists($avatar_path)) {
+                //aplicar imagem perfil;
+            }
+        }
+
+        //*Enquanto devolver resultados...
+        while ($row_result = mysqli_fetch_assoc($result)) {
+            //Variáveis
+            $nome_momento = $row_result["nome_momento"];
+            $historia = $row_result["historia"];
+            $arvore = $row_result["arvore"];
+            $data_momento = $row_result["data_momento"];
+
+            echo "
     <!--Galery of pictures-->
     <div class=\"carousel carousel-slider center\" data-indicators=\"true\" style=\"width: 100vw\">
         <div class=\"carousel-fixed-item center\">
         </div>
         <div class=\"carousel-item  white-text materialboxed\"
-             style=\"background-image: url('../../images/imagem1.png'); background-size: cover; background-position: center;\">
-        </div>
-        <div class=\"carousel-item  white-text materialboxed\"
-             style=\"background-image: url('../../images/imagem1.png'); background-size: cover; background-position: center;\">
-        </div>
-        <div class=\"carousel-item  white-text materialboxed\"
-             style=\"background-image: url('../../images/imagem1.png'); background-size: cover; background-position: center;\">
-        </div>
-        <div class=\"carousel-item  white-text materialboxed\"
-             style=\"background-image: url('../../images/imagem1.png'); background-size: cover; background-position: center;\">
+             style=\"background-image: url('../../images/back_small.jpg'); background-size: cover; background-position: center;\">
         </div>
     </div>
 
@@ -48,10 +53,9 @@
                 <div class=\"card-image\">
                 </div>
                 <div class=\"card-content\">
-                    <span><?php $data_momento ?></span>
-                    <span class=\"card-title\">Nascimento do Francisco</span>
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient
-                        because I require little markup to use effectively.</p>
+                    <span>$data_momento</span>
+                    <span class=\"card-title\">$nome_momento</span>
+                    <p>$historia</p>
                     <div class=\"margin-top-10\">
                         <span style=\"display: inline-block\" class=\"valign-wrapper icon\"><i class=\"material-icons tiny\">favorite</i> 778</span>
                         <span style=\"display: inline-block\" class=\"valign-wrapper icon\"><i class=\"material-icons tiny\">share</i> 13</span>
@@ -113,13 +117,14 @@
                     </div>
 
                 </div>
-
+                
+      
 
                 <!--New comment-->
                 <div class=\"row\">
                     <div class=\"col s12\">
                         <div class=\"input-field col s3\">
-                            <img class=\"circle\" src=\"../../images/avatar_woman.png\" style=\"width: 100%\">
+                            <img class=\"circle img-commments\" src=\"$avatar_path\">
                         </div>
                         <form class=\"input-field col s9\">
                             <div class=\"input-field col s8\">
@@ -141,6 +146,17 @@
 
     </div>
     ";
+        }
+    }
+    else{
+        /*Card for content*/
+        echo "
+                    <div class='row valign-wrapper' style='height: 60vh !important;'>
+                        <p class='col s10 offset-s1 center'>Faz login ou regista-te para poderes ver esta página. 
+                        <br><br><a href='../pages/login_register.php' class='btn green margin-top-10'>Login/Registo</a>
+                    </div>
+                
+                ";
     }
     ?>
 </div>

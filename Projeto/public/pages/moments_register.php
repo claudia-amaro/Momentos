@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -8,7 +12,7 @@
 
     <!--Let browser know website is optimized for mobile-->
     <?php include_once "../helpers/meta.php" ?>
-    <title>Projeto BioLiving - Registo de Momentos</title>
+    <title>Registar Momentos</title>
 </head>
 
 <body>

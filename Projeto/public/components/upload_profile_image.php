@@ -8,7 +8,7 @@ $target_dir = "../../../../IIS_tmp/img_perfil/";
 if (!file_exists($target_dir)) {
     mkdir($target_dir, 0777, true);
 }
-$target_file = $target_dir . $_SESSION['user_id']. ".jpg";
+$target_file = $target_dir . $_SESSION['user_id']. ".jpg" ;
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 

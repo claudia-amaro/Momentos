@@ -3,14 +3,14 @@
     <div id="produtos" class="col s12 m12">
 
         <!-- Dropdown Trigger -->
-        <a class='dropdown-button btn white grey-text margin-top-10' style="width: 100%" href='#' data-activates='dropdown1'><i
+        <!--<a class='dropdown-button btn white grey-text margin-top-10' style="width: 100%" href='#' data-activates='dropdown1'><i
                     class="material-icons left">filter_list</i>Filtrar por...<i class="material-icons right">keyboard_arrow_down</i></a>
-
+-->
         <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content '>
+        <!--<ul id='dropdown1' class='dropdown-content '>
             <li><a href="#!" class="grey-text">Para doar</a></li>
             <li><a href="#!" class="grey-text">Para aquisição</a></li>
-        </ul>
+        </ul>-->
 
         <!--Dropdown-->
         <!--        <div class="input-field col s12">
@@ -70,28 +70,25 @@ utilitarios:
             <a href=\"products_detail.php?id=$id_produto\" class=\"black-text\">        
                 <div class=\"card\">
                     <div class=\"card-image\">
-                        <img src=\"../../images/imagem1.png\">
+                        <img src=\"../../images/store/t-shirt_small.png\">
                     </div>
                     <div class=\"card-content\">
                         <span>$tipo_produto</span>
                         <span class=\"card-title\">$nome</span>
-                        <p>$descricao<br>$preco</p>
+                        <p>$descricao<br>
+                        $preco</p>
                     </div>
                 </div>
             </a>
             ";
         }
 
-        // Fechar ligação à BD 
-        mysqli_close($link);
-
         ?>
 
-        <div>
-            <p class="center-align"><a href="#" class="green-text"><i class="material-icons">arrow_upward</i><br>Voltar
-                    ao topo</a></p>
+<!--        <div class="margin-top-10">
+            <p class="center-align"><a href="#" class="grey-text"><i class="material-icons">arrow_upward</i><br>Não há mais resultados.</a></p>
         </div>
-    </div>
+-->    </div>
 
     <div class="row">
         <div id="carrinho" class="col s12 m12 center">

@@ -12,7 +12,7 @@ session_start();
 
     <!--Let browser know website is optimized for mobile-->
     <?php include_once "../helpers/meta.php" ?>
-    <title>Projeto BioLiving - O Projeto</title>
+    <title>O Projeto</title>
 </head>
 
 <body>

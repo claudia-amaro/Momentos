@@ -30,7 +30,6 @@ if (mysqli_stmt_fetch($result)) {
 }
 
 // Fechar ligação à BD 
-mysqli_close($link);
 mysqli_stmt_close($result);
 
 ?>

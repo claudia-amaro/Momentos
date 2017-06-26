@@ -12,7 +12,7 @@ session_start();
 
     <!--Let browser know website is optimized for mobile-->
     <?php include_once "../helpers/meta.php" ?>
-    <title>Projeto BioLiving - Login/Registo</title>
+    <title>Momentos</title>
 </head>
 
 <body>

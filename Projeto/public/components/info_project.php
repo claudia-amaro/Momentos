@@ -1,16 +1,16 @@
-<div id="info_bioliving" class="col s12 margin_nav_10">
+<div id="info_project" class="col s12 margin_nav_10">
     <!--Galery of pictures-->
     <div class="carousel carousel-slider center" data-indicators="true" style="width: 100vw">
         <div class="carousel-fixed-item center">
         </div>
         <div class="carousel-item  white-text"
-             style="background-image: url('../../images/bioliving/imagem8.jpg'); background-size: cover; background-position: center;">
+             style="background-image: url('../../images/bioliving/imagem15.jpg'); background-size: cover; background-position: center;">
         </div>
         <div class="carousel-item  white-text "
-             style="background-image: url('../../images/bioliving/imagem12.jpg'); background-size: cover; background-position: center;">
+             style="background-image: url('../../images/bioliving/imagem14.jpg'); background-size: cover; background-position: 70%;">
         </div>
         <div class="carousel-item  white-text "
-             style="background-image: url('../../images/bioliving/imagem13.jpg'); background-size: cover; background-position: center;">
+             style="background-image: url('../../images/bioliving/imagem3.jpg'); background-size: cover; background-position: center;">
         </div>
     </div>
 

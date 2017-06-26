@@ -12,7 +12,7 @@ session_start();
 
     <!--Let browser know website is optimized for mobile-->
     <?php include_once "../helpers/meta.php" ?>
-    <title>Projeto BioLiving - Registo de Momentos</title>
+    <title>Momentos</title>
 </head>
 
 <body>
@@ -28,6 +28,10 @@ session_start();
 
         <!--Page Content-->
         <?php include_once "../components/moments.php" ?>
+
+        <!--Scroll infinito-->
+        <!--<a onclick="carregarMais();">ver mais</a>-->
+
     </div>
     <div id="conteudo_pc" class="hide-on-med-and-down">
         <?php include "../components/no_access.php" ?>
@@ -41,3 +45,11 @@ session_start();
 
 </body>
 </html>
+<!--Scroll infinito-->
+<!--<script>
+    var page = 0;
+    function carregarMais() {
+        $.get('../components/carregar_mais.php?page=' + page, function (responseText){
+            document.getElementByID('recents_content').innerHTML += responseText;
+        });
+</script>-->

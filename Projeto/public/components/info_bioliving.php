@@ -5,16 +5,13 @@
         <div class="carousel-fixed-item center">
         </div>
         <div class="carousel-item  white-text "
-             style="background-image: url('../../images/bioliving/imagem4.jpg'); background-size: cover; background-position: center;">
+             style="background-image: url('../../images/bioliving/imagem16.jpg'); background-size: cover; background-position: 70%;">
         </div>
         <div class="carousel-item  white-text "
-             style="background-image: url('../../images/bioliving/imagem11.jpg'); background-size: cover; background-position: center;">
+             style="background-image: url('../../images/bioliving/imagem8.jpg'); background-size: cover; background-position: 90%;">
         </div>
         <div class="carousel-item  white-text "
-             style="background-image: url('../../images/bioliving/imagem10.jpg'); background-size: cover; background-position: center;">
-        </div>
-        <div class="carousel-item  white-text "
-             style="background-image: url('../../images/bioliving/imagem1.jpg'); background-size: cover; background-position: center;">
+             style="background-image: url('../../images/bioliving/imagem2.jpg'); background-size: cover; background-position: center;">
         </div>
     </div>
 

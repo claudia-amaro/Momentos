@@ -75,9 +75,10 @@ and (-webkit-min-device-pixel-ratio: 3) {
     margin-top: 0.3em;
 }
 
-/*profile photo upload button*/
+
+/*profile photo upload button REVER!!!!*/
 .input-field-photo {
-    position: relative !important;
+    position: relative;
     bottom: 32px !important;
     left: 60px !important;
     margin-top: 0 !important;
@@ -109,13 +110,13 @@ and (-webkit-min-device-pixel-ratio: 3) {
     color: #fff !important;
 }
 
-/*Profile changes*/
+/*Profile changes REVER!!!!*/
 .changes-btn {
-    font-size: 0.6rem !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-    height: 2rem !important;
-    line-height: 2rem !important;
+    /*font-size: 0.6rem !important;*/
+    /*padding-left: 0.5rem !important;*/
+    /*padding-right: 0.5rem !important;*/
+    /*height: 2rem !important;*/
+    /*line-height: 2rem !important;*/
 }
 
 /*user register*/
@@ -243,11 +244,9 @@ font-weight: bold;
 }
 
 .user-image{
-    /*
     background-size: cover;
     background-position: center;
-    height: 30vh;
-    */
+    height: 30%;
     width: 100%;
 }
 
@@ -255,4 +254,24 @@ font-weight: bold;
     width: 20vh;
     height: 20vh;
     display: inline-block;
+}
+
+.margin-text{
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.gradient-photo{
+    background: linear-gradient(180deg, rgba(0,0,0,.5) 65%, rgba(0,0,0,0));
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.product-option{
+    padding: 5px;
+}
+
+.img-commments{
+    width: 100%;
+
 }
