@@ -59,7 +59,7 @@ mysqli_close($link);
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 30.500, lng: -15.500},
+            center: {lat: 40.000, lng: -7.000},
             zoom: 6
         });
 
@@ -74,7 +74,7 @@ mysqli_close($link);
                 };
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('Estás aqui.');
+                infoWindow.setContent('Está aqui.');
                 map.setCenter(pos);
 
                 //Marcador da localização atual

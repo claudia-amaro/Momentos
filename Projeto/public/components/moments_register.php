@@ -5,31 +5,68 @@
         <h5>1. Identificação</h5>
         <div class="row">
             <div class="input-field col s12">
-                <input id="moment_name" name="moment_name" data-error="" data-success="right"
+                <input id="nome_momento" name="nome_momento" data-error="" data-success="right"
                        type="text" class="validate">
                 <label for="moment_name">Nome do Momento</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="moment_date" name="moment_date" type="date" data-error=""
+                <input id="data_momento" name="data_momento" type="date" data-error=""
                        data-success="right" class="validate datepicker">
                 <label for="moment_date">Data</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                        <textarea id="moment_story" name="moment_story" data-error="wrong" data-success="right"
+                        <textarea id="historia" name="historia" data-error="wrong" data-success="right"
                                   class="materialize-textarea validate" data-length="500"></textarea>
                 <label for="moment_story">História</label>
             </div>
         </div>
 
+
         <h5>2. Planeamento</h5>
         <div class="row">
             <div class="input-field col s12 m12">
-                <select id="kit" name="kit">
-                    <option value="" disabled selected>Selecione um kit</option>
+                <select id="kit" name="kit" onchange="calcular();">
+
+<!--                    --><?php
+//                    if(isset($_SESSION['kit'])) {
+//                    if ($_SESSION['kit'] == "1") {
+//                            echo "<p>
+//                <option disabled>Selecione um kit</option>
+//                <option onclick=\"\" value=\"1\" selected>Árvore + Placa de identificação + Plantação Bioliving </option>
+//                <option value=\"2\">Árvore + Placa de identificação</option>
+//                <option value=\"3\" >Placa de identificação</option>
+//            </p>";
+//                        }
+//                        else if ($_SESSION['kit'] == "2") {
+//                            echo "<p>
+//                <option disabled>Selecione um kit</option>
+//                <option onclick=\"\" value=\"1\">Árvore + Placa de identificação + Plantação Bioliving </option>
+//                <option value=\"2\" selected>Árvore + Placa de identificação</option>
+//                <option value=\"3\" >Placa de identificação</option>
+//            </p>";
+//                        }
+//                        else{
+//                            echo "<p>
+//                <option disabled>Selecione um kit</option>
+//                <option onclick=\"\" value=\"1\">Árvore + Placa de identificação + Plantação Bioliving </option>
+//                <option value=\"2\" >Árvore + Placa de identificação</option>
+//                <option value=\"3\" selected >Placa de identificação</option>
+//            </p>";
+//                        }
+//                    }
+//                    else {
+//                        echo "<p>
+//            <option disabled selected>Selecione um kit</option>
+//            <option onclick=\"\" value=\"1\">Árvore + Placa de identificação + Plantação Bioliving </option>
+//            <option value=\"2\">Árvore + Placa de identificação</option>
+//            <option value=\"3\">Placa de identificação</option>
+//        </p>";}
+//                    ?>
+                    <option disabled selected>Selecione um kit</option>
                     <option value="1">Árvore + Placa de identificação + Plantação Bioliving </option>
                     <option value="2">Árvore + Placa de identificação</option>
                     <option value="3" >Placa de identificação</option>
@@ -38,29 +75,84 @@
             </div>
         </div>
 
+
+
+
+
+        <script>
+
+            function calcular() {
+
+                var a = document.getElementById("kit");
+                var b = a.options[a.selectedIndex].value;
+                alert(b);
+//              var c = e.options[e.selectedIndex].text;
+
+
+                switch(b){
+                    case "1":
+                        document.getElementById("compras").innerHTML = "placa de identificação: 20.00€<br>Plantação: 25.00 €";
+                        break;
+                    case "2":
+                        document.getElementById("compras").innerHTML = "placa de identificação: 20.00€";
+                        break;
+                    case "3":
+                        document.getElementById("compras").innerHTML = "placa de identificação: 20.00€";
+                        break;
+                }
+
+            }
+
+        </script>
+
         <div class="row">
             <div class="input-field col s12" disabled>
                 <select id="local" name="local">
-                    <optgroup label="Área 1">
-                        <option value="1">Local 1</option>
-                        <option value="2">Local 2</option>
-                    </optgroup>
-                    <optgroup label="Área 2">
-                        <option value="3">Local 3</option>
-                        <option value="4">Local 4</option>
-                    </optgroup>
+                    <option value="" disabled selected>Selecione um local</option>
+                        <?php
+
+                        // Ligação à BD 
+                            require_once('../connections/connection.php');
+
+                            $query = "SELECT id_local, freguesia, concelho, distrito FROM locais";
+                            $result = mysqli_query($link, $query);
+
+                            // Mostrar dados
+                            while ($row_result = mysqli_fetch_assoc($result)) {
+                                $id_local = $row_result["id_local"];
+                                $freguesia = $row_result["freguesia"];
+                                $concelho = $row_result["concelho"];
+                                $distrito = $row_result["distrito"];
+
+                                echo "<option value=$id_local>$distrito - $concelho - $freguesia</option>";
+                            }
+                        ?>
                 </select>
                 <label for="local">Local</label>
             </div>
         </div>
         <div class="row">
 
+            <p class="col s8" >Escolha uma árvore<p>
+
             <div class="input-field col s8">
-                <a class="waves-effect waves-light btn green" href="tree_select.php"><i
+
+                <a id="btn_escolher" type="submit" class="waves-effect waves-light btn green" href="tree_select.php"><i
                             class="material-icons right">chevron_right</i>escolher Árvore</a>
-                <br><span class="grey-text"><i class="material-icons tiny">warning</i> Disponível consoante o local escolhido</span>
+<!--                <br><span class="grey-text"><i class="material-icons tiny">warning</i> Disponível consoante o local escolhido</span>-->
 
             </div>
+
+            <?php
+                if(isset($_GET['nome_arvore'])){
+                    $nome_arvore = $_GET['nome_arvore'];
+                    $preco = $_GET['preco'];
+                    echo "<div class=\"input-field col s8\"><p>$nome_arvore</p></div>
+                          <input name=\"$nome_arvore\" type=\"hidden\">";
+                }
+            ?>
+
+
             <div class="input-field col s4">
                 <input id="tree_number" name="tree_number" data-error="wrong" data-success="right"
                        type="text" class="validate" value="01" disabled>
@@ -76,6 +168,16 @@
             <div class="input-field col s12" disabled>
 
 <!--                Listar a "compra"-->
+                <div id="compras"></div>
+
+                <?php
+                if(isset($_GET['nome_arvore'])){
+                    $nome_arvore = $_GET['nome_arvore'];
+                    $preco = $_GET['preco'];
+                    echo "<div>$nome_arvore: $preco</div>";
+                }
+                ?>
+
             </div>
         </div>
 
@@ -88,4 +190,5 @@
         </div>
 
     </form>
+
 </div>

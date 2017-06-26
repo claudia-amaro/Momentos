@@ -26,7 +26,7 @@ session_start();
 <?php include_once "../components/side_nav.php" ?>
 
 <!--Top Navigation-->
-<?php include_once "../components/top_nav_moments_search.php" ?>
+<?php include_once "../components/top_nav_map_register.php" ?>
 
 <!--Content (Mapa)-->
 
