@@ -19,7 +19,7 @@ validar_nome();
 //Verifica se o campo apelido está preenchido.
 validar_apelido();
 
-//Verifica se o campo gene está preenchido.
+//Verifica se o campo genero está preenchido.
 if ($emModoCriacao) {
     validar_genero();
 }

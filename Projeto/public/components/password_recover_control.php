@@ -4,41 +4,49 @@ session_start();
 //Ligação à BD
 require_once('../connections/connection.php');
 
-if (!empty($_POST["forgot-password"])) {
-    if (!empty($_POST["email"])) {
+//Lista de erros
+$GLOBALS['erro'] = [];
 
-        $email = $_POST["email"];
+//VALIDAÇÃO DO FORMULÁRIO
+require_once '../components/password_recover_email_form_validate.php';
 
-        $query = "SELECT id_user, nome, apelido, email FROM users WHERE email=?";
+//Verifica se existem erros. Se não existirem, é feito registo.
+if(count($GLOBALS['erro'])==0) {
 
-        $result = mysqli_prepare($link, $query);
+    if (!empty($_POST["forgot-password"])) {
+        if (!empty($_POST["email"])) {
 
-        mysqli_stmt_bind_param($result, 's', $email);
-        mysqli_stmt_execute($result);
-        mysqli_stmt_bind_result($result, $id_user, $nome, $apelido, $email);
+            $email = $_POST["email"];
 
-        if (mysqli_stmt_fetch($result)) {
-            //Variáveis
-            $id_user_BD = $id_user;
-            $nome_BD = $nome;
-            $apelido_BD = $apelido;
-            $email_BD = $email;
-            mysqli_stmt_close($result);
+            $query = "SELECT id_user, nome, apelido, email FROM users WHERE email=?";
 
-//            var_dump($id_user_BD, $nome_BD, $apelido_BD, $email_BD);
-            require_once("password_recover_email.php");
-//            header("Location: ../pages/password_recover.php?msg=1");
-//        } else {
-//            header("Location: ../pages/password_recover.php?msg=1");
-//        }
+            $result = mysqli_prepare($link, $query);
+
+            mysqli_stmt_bind_param($result, 's', $email);
+            mysqli_stmt_execute($result);
+            mysqli_stmt_bind_result($result, $id_user, $nome, $apelido, $email);
+
+            if (mysqli_stmt_fetch($result)) {
+                //Variáveis
+                $id_user_BD = $id_user;
+                $nome_BD = $nome;
+                $apelido_BD = $apelido;
+                $email_BD = $email;
+                mysqli_stmt_close($result);
+
+                require("../components/password_recover_email.php");
+                header("Location: ../pages/password_recover.php?msg=1");
+            }
+            else {
+                //não executou a query - erro
+                header("Location: ../pages/password_recover.php?msg=2");
+            }
         }
-
-//        if (!empty($user)) {
-//            require_once("password_recover_email.php");
-//            header("Location: ../pages/password_recover.php?msg=1");
-//        } else {
-//            header("Location: ../pages/password_recover.php?msg=1");
-//        }
     }
+}
+else{
+    $erro_query_string = http_build_query($GLOBALS['erro']);
+
+    header('Location: ../pages/password_recover.php?'.$erro_query_string);
 }
 ?>
