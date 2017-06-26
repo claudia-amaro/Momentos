@@ -11,7 +11,7 @@ require_once('../connections/connection.php');
             <div class="row">
                 <form class="col s12 m12">
                     <div class="card">
-                        <div class="card-content">
+                        <div class="card-content" style="margin-top: 5vh">
                             <?php
 
                             // Definir a query
@@ -70,17 +70,26 @@ require_once('../connections/connection.php');
                                     
                                     <!-- Modal Structure Block User -->
                                     <div id=\"block_user?id=$id_user\" class=\"modal\">
-                                        <div class=\"modal-content\">
-                                            <h4>Atenção</h4>
-                                            <p>Tem a certeza que quer bloquear este utilizador?</p>
+                                        <div class=\"modal-content\">";
+                                        if ($estado == 1){
+                                            echo "<h4>Atenção</h4>
+                                            <p>Tens a certeza que queres bloquear este utilizador? Ele, e as suas publicações, vão deixar de estar vísiveis aos restantes utilizadores.</p>";
+                                        } else{
+                                            echo"<h4>Atenção</h4>
+                                            <p>Tens a certeza que queres desbloquear este utilizador? Ele, e as suas publicações, vão passar a estar vísiveis aos restantes utilizadores.</p>";
+                                        }
+                                    echo"
                                         </div>
                                         <div class=\"modal-footer\">
-                                            <a href='admin_area.php#users' class='modal-action modal-close waves-effect waves-green btn-flat'>Cancelar</a>
-                                            <a href=\"../components/admin_area_block_user.php?id=$id_user\" class=\"modal-action modal-close waves-effect waves-green btn-flat\">Bloquear</a>
-                                        </div>
+                                            <a href='admin_area.php#users' class='modal-action modal-close waves-effect waves-green btn-flat'>Cancelar</a>";
+                                            if ($estado == 1) {
+                                                echo "<a href=\"../components/admin_area_block_user.php?id=$id_user\" class=\"modal-action modal-close waves-effect waves-green btn-flat\">Bloquear</a>";
+                                            } else {
+                                                echo "<a href=\"../components/admin_area_block_user.php?id=$id_user\" class=\"modal-action modal-close waves-effect waves-green btn-flat\">Desbloquear</a>";
+                                            }
+                                            echo "
+                                            </div>
                                     </div>
-
-                                    
 				                </li>
 				            </ul>
                         </div>
@@ -100,7 +109,7 @@ require_once('../connections/connection.php');
 
 <div id="moments" class="col s12">
     <div class="row">
-        <div class="col s12 m12">
+        <div class="col s12 m12"  style="margin-top: 5vh">
             <?php
 
             // Definir a query
@@ -143,13 +152,24 @@ require_once('../connections/connection.php');
                     
                     <!-- Modal Structure Archive Moment -->
                     <div id=\"archive_moments$id_momento\" class=\"modal\">
-                        <div class=\"modal-content\">
-                            <h4>Atenção</h4>
-                            <p>Tens a certeza que queres ocultar este momento?</p>
+                        <div class=\"modal-content\">";
+                            if ($estado == 1){
+                                echo "<h4>Atenção</h4>
+                                      <p>Tens a certeza que queres ocultar este momento? Ele vai deixar de estar visível aos restantes utilizadores.</p>";
+                            } else{
+                                echo"<h4>Atenção</h4>
+                                <p>Tens a certeza que queres mostrar este momento? Ele vai passar a estar visível aos restantes utilizadores.</p>";
+                                        }
+                                    echo"
                         </div>
                         <div class=\"modal-footer\">
-                            <a href='admin_area.php#moments' class='modal-action modal-close waves-effect waves-green btn-flat'>Cancelar</a>
-                            <a href='../components/admin_area_archive_moment.php$id_momento' class=\"modal-action modal-close waves-effect waves-green btn-flat\">Ocultar</a>
+                            <a href='admin_area.php#moments' class='modal-action modal-close waves-effect waves-green btn-flat'>Cancelar</a>";
+                                if ($estado == 1) {
+                                    echo "<a href=\" ../components/admin_area_archive_moment.php?id=$id_momento\" class=\"modal-action modal-close waves-effect waves-green btn-flat\">Ocultar</a>";
+                                            } else {
+                                                echo "<a href=\"../components/admin_area_archive_moment.php?id=$id_momento\"class=\"modal-action modal-close waves-effect waves-green btn-flat\">Mostrar</a>";
+                                            }
+                                            echo"
                         </div>
                     </div>
                     
@@ -161,7 +181,7 @@ require_once('../connections/connection.php');
                         </div>
                         <div class=\"modal-footer\">
                             <a href='admin_area.php#moments' class='modal-action modal-close waves-effect waves-green btn-flat'>Cancelar</a>
-                            <a href='../components/admin_area_delete_moment.php$id_momento' class=\"modal-action modal-close waves-effect waves-green btn-flat\">Eliminar</a>
+                            <a href='../components/admin_area_delete_moment.php?id=$id_momento' class=\"modal-action modal-close waves-effect waves-green btn-flat\">Eliminar</a>
                         </div>
                     </div>
                     
@@ -190,15 +210,6 @@ require_once('../connections/connection.php');
 <!--Store-->
 
 <div id="store" class="col s12">
-
-    <!--Dropdown-->
-    <div class="input-field col s12">
-        <select>
-            <option value="" disabled selected>Filtrar por...</option>
-            <option value="1">Doar</option>
-            <option value="2">Vender</option>
-        </select>
-    </div>
 
     <!-- Modal Trigger -->
     <div class="fixed-action-btn">
@@ -280,8 +291,8 @@ require_once('../connections/connection.php');
     <div class="row">
         <div class="col s12 m12">
             <div class="row">
-                <div id="produtos" class="col s12 m12">
-                    <div class="col s12 m12 margin-top-10">
+                <div id="produtos" class="col s4 m12">
+                    <div class="col s12 m12" style="margin-top: 5vh">
                         <?php
 
                         //Listar produtos da BD
@@ -317,7 +328,7 @@ require_once('../connections/connection.php');
                 <div class=\"card col s4\">
                     <div class=\"card-image\">
                         <img src=\"../../images/imagem1.png\">
-                        <a href='../components/admin_area_edit_product.php?id=$id_produto' class=\"btn-floating halfway-fab right waves-effect waves-light green\" style='right: 70px'><i class=\"material-icons\">mode_edit</i></a>
+                        <a href='' class=\"btn-floating halfway-fab right waves-effect waves-light green\" style='right: 70px'><i class=\"material-icons\">mode_edit</i></a>
                         <a href='#archive_product?id=$id_produto' class=\"btn-floating halfway-fab right waves-effect waves-light green\" style='right: 116px'>
                         ";
                             if ($estado == 1) {
@@ -333,12 +344,18 @@ require_once('../connections/connection.php');
                     <!-- Modal Structure Archive Product -->
                     <div id=\"archive_product?id=$id_produto\" class=\"modal\">
                         <div class=\"modal-content\">
-                            <h4>Atenção</h4>
-                            <p>Tem a certeza que quer arquivar este produto?</p>
+                        ";
+                        if ($estado == 1){
+                            echo "<h4>Atenção</h4>
+                            <p>Tens a certeza que queres arquivar este produto? Vai deixar de estar acessível aos restantes utilizadores.</p>";
+                        } else{
+                            echo "<h4>Atenção</h4>
+                            <p>Tens a certeza que queres desarquivar este produto? Vai passar a estar acessível aos restantes utilizadores.</p>";
+                        }
+                        echo"
                         </div>
                         <div class=\"modal-footer\">
-                            <a href='admin_area.php#store' class='modal-action modal-close waves-effect waves-green btn-flat'>Cancelar</a>
-                            ";
+                            <a href='admin_area.php#store' class='modal-action modal-close waves-effect waves-green btn-flat'>Cancelar</a>";
                             if ($estado == 1) {
                                 echo "<a href='../components/admin_area_archive_product.php?id=$id_produto' class=\"modal-action modal-close waves-effect waves-green btn-flat\">Arquivar</a>";
                             } else {
@@ -347,7 +364,6 @@ require_once('../connections/connection.php');
                             echo "
                         </div>
                     </div>
-                    
                     <!-- Modal Structure Delete Product -->
                     <div id=\"delete_product$id_produto\" class=\"modal\">
                         <div class=\"modal-content\">
