@@ -33,7 +33,7 @@ if(count($GLOBALS['erro'])==0) {
 
     /*Envio do email*/
     $mail = new SendGrid\Mail($from, $subject, $to, $content);
-    $apiKey = ('COLOCAR AQUI API KEY');
+    $apiKey = ('INSERIR AQUI');
     $sg = new \SendGrid($apiKey);
 
     /*Resposta*/
