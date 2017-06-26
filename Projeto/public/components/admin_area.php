@@ -54,11 +54,19 @@
                                     <div class=\"switch\">
                                         <label>
                                             Normal
-                                            <a href='../components/admin_area_change_role.php?role=$role'></a>
-                                                <input type=\"checkbox\">
-                                                <span class=\"lever\"></span>
+                                                <input type=\"checkbox\" ";
+                                                    if($role == 1)
+                                                        echo "checked";
+                                                echo ">
+                                                <span class=\"lever\" onclick=\"window.location.href='../components/admin_area_change_role.php?a=$id_user&b=$role'\"></span>
                                             Administrador
                                         </label>
+                                        ";
+                                        if(isset($_GET['msg']) && (isset($_GET['a']) && $_GET['a'] == $id_user)){
+                                            echo "<span class=\"green-text\">Não foi possível processar o teu pedido.</span>";
+                                        }
+
+                                        echo "
                                     </div>
                                     <a href='#modal1' class=\"secondary-content\"><i class=\"material-icons green-text\">close</i></a>
                                     <!-- Modal Structure -->
