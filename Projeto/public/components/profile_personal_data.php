@@ -167,17 +167,17 @@ if (in_array("19", $query)) {
 
         if (mysqli_stmt_fetch($result)) {
             //Variáveis
-            $nome_BD = $nome;
-            $apelido_BD = $apelido;
-            $genero_BD = $genero;
-            $email_BD = $email;
-            $data_nascimento_BD = $data_nascimento;
-            $nif_BD = $nif;
-            $rua_BD = $rua;
-            $numero_porta_BD = $numero_porta;
-            $andar_BD = $andar;
-            $codigo_postal_BD = $codigo_postal;
-            $cidade_BD = $cidade;
+            $nome_BD = htmlspecialchars($nome);
+            $apelido_BD = htmlspecialchars($apelido);
+            $genero_BD = htmlspecialchars($genero);
+            $email_BD = htmlspecialchars($email);
+            $data_nascimento_BD = htmlspecialchars($data_nascimento);
+            $nif_BD = htmlspecialchars($nif);
+            $rua_BD = htmlspecialchars($rua);
+            $numero_porta_BD = htmlspecialchars($numero_porta);
+            $andar_BD = htmlspecialchars($andar);
+            $codigo_postal_BD = htmlspecialchars($codigo_postal);
+            $cidade_BD = htmlspecialchars($cidade);
 
             mysqli_stmt_close($result);
 
