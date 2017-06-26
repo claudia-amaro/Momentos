@@ -19,18 +19,16 @@ session_start();
 
 <div class="content">
     <div id="conteudo_mobile" class="hide-on-large-only">
-
         <!--Side Navigation = Menu on Mobile -->
         <?php include_once "../components/side_nav.php" ?>
+        <?php include "../components/no_access_desktop.php" ?>
+    </div>
 
+    <div id="conteudo_pc" class="hide-on-med-and-down">
         <!--Top Navigation-->
         <?php include_once "../components/top_nav_info_admin_area.php" ?>
-
         <!--Page Content-->
         <?php include_once "../components/admin_area.php" ?>
-    </div>
-    <div id="conteudo_pc" class="hide-on-med-and-down">
-        <?php include "../components/no_access.php" ?>
     </div>
 </div>
 

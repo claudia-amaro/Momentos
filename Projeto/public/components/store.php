@@ -40,7 +40,7 @@ utilitarios:
         require_once('../connections/connection.php');
 
         // Definir a query
-        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto FROM produto ORDER BY nome DESC";
+        $query = "SELECT id_produto, nome, descricao, preco, ref_id_tipo_produto, estado FROM produto WHERE estado=1 ORDER BY nome DESC";
         $result = mysqli_prepare($link, $query);
 
         // Extrair dados da BD 
@@ -55,6 +55,15 @@ utilitarios:
             $descricao = $row_result["descricao"];
             $preco = $row_result["preco"];
             $tipo_produto = $row_result["ref_id_tipo_produto"];
+            $estado = $row_result["estado"];
+
+            if ($tipo_produto == 1){
+                $tipo_produto = "Árvores";
+            } else if ($tipo_produto == 2){
+                $tipo_produto = "Merchandising";
+            } else {
+                $tipo_produto = "Utilitários";
+            }
 
             /*Card for content*/
             echo "

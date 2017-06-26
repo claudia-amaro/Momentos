@@ -52,8 +52,6 @@ require_once('../connections/connection.php');
             ";
             }
 
-            // Fechar ligação à BD 
-//            mysqli_close($link);
             ?>
         </div>
     </div>
@@ -110,8 +108,7 @@ require_once('../connections/connection.php');
             }
 
             // Fechar ligação à BD 
-//            mysqli_close($link);
-
+            mysqli_close($link);
             ?>
 
 
