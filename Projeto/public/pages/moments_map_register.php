@@ -96,7 +96,8 @@ session_start();
 
 <div id="map" style="z-index: 100"></div>
 
-<form class="col s12" action="../components/search_id_control.php" method="GET">
+<form class="col s12" action="../components/map_register_control.php" method="POST">
+
 
     <div class="row">
         <div class="input-field col s10 offset-s1">
@@ -128,14 +129,15 @@ session_start();
         </div>
     </div>
 
+    <input id="latitude" name="latitude" type="hidden">
+    <input id="longitude" name="longitude" type="hidden">
+
     <div class="row">
         <div class="input-field col s10 offset-s1">
             <i class="waves-effect waves-light btn green waves-input-wrapper"><input style="margin-top: 8px" type="submit" id="login_form_submit" class="waves-button-input" value="Alterar"></i>
         </div>
     </div>
 
-    <input id="latitude" name="latitude" type="hidden">
-    <input id="longitude" name="longitude" type="hidden">
 
 </form>
 
