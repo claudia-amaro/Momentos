@@ -1,5 +1,13 @@
 <!--Card of content - Form for moments register-->
 <div class="row margin_nav_10">
+
+
+
+
+
+
+
+
     <form class="col s10 m10 offset-s1 offset-m1 margin-top-10" action="../components/moments_register_control.php" method="post">
 
         <h5>1. Identificação</h5>
@@ -85,19 +93,22 @@
 
                 var a = document.getElementById("kit");
                 var b = a.options[a.selectedIndex].value;
-                alert(b);
+//              alert(b);
 //              var c = e.options[e.selectedIndex].text;
 
 
                 switch(b){
                     case "1":
                         document.getElementById("compras").innerHTML = "placa de identificação: 20.00€<br>Plantação: 25.00 €";
+                        document.getElementById("btn_escolher").innerHTML = "<a  type='submit' class='waves-effect waves-light btn green' href='tree_select.php'><i class='material-icons right'>chevron_right</i>escolher Árvore</a>";
                         break;
                     case "2":
                         document.getElementById("compras").innerHTML = "placa de identificação: 20.00€";
+                        document.getElementById("btn_escolher").innerHTML = "<a  type='submit' class='waves-effect waves-light btn green' href='tree_select.php'><i class='material-icons right'>chevron_right</i>escolher Árvore</a>";
                         break;
                     case "3":
                         document.getElementById("compras").innerHTML = "placa de identificação: 20.00€";
+                        document.getElementById("btn_escolher").innerHTML = "<a  type='submit' class='waves-effect waves-light btn green' href='tree_select.php' disabled=''><i class='material-icons right'>chevron_right</i>escolher Árvore</a>";
                         break;
                 }
 
@@ -135,9 +146,9 @@
 
             <p class="col s8" >Escolha uma árvore<p>
 
-            <div class="input-field col s8">
+            <div id="btn_escolher" class="input-field col s8">
 
-                <a id="btn_escolher" type="submit" class="waves-effect waves-light btn green" href="tree_select.php"><i
+                <a  type="submit" class="waves-effect waves-light btn green" href="tree_select.php" disabled><i
                             class="material-icons right">chevron_right</i>escolher Árvore</a>
 <!--                <br><span class="grey-text"><i class="material-icons tiny">warning</i> Disponível consoante o local escolhido</span>-->
 

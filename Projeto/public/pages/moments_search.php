@@ -100,8 +100,8 @@ session_start();
     <label for="changetype-geocode">Geocodes</label>
 </div>
 
-<div id="teste2"><?php include_once "../components/search_id.php" ?></div>
-
+<div id="teste2"><?php include_once "../components/search_id.php" ?>
+<div style="height: 48%"></div></div>
 <!--Footer-->
 <?php include_once "../components/footer.php" ?>
 
